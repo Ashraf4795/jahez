@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_locations_label">العناوين</string>
+    <string name="add_address_label">أضف عنوان جديد</string>
+</resources>

@@ -1,5 +1,3 @@
-import io.grpc.internal.SharedResourceHolder.release
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.services)
@@ -7,7 +5,6 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
-    //alias(libs.plugins.google.ksp)
 }
 
 android {
@@ -55,6 +52,7 @@ android {
 }
 
 dependencies {
+    projects()
     jetpackLibs()
     androidX()
     kotlinx()
@@ -63,6 +61,12 @@ dependencies {
     androidXtest()
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+fun DependencyHandlerScope.projects() {
+    implementation(project(":ui"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:product_details"))
 }
 
 fun DependencyHandlerScope.androidXtest() {
@@ -87,6 +91,7 @@ fun DependencyHandlerScope.androidX() {
 fun DependencyHandlerScope.jetpackLibs() {
     // hilt
     implementation(libs.hilt.android)
+    implementation(libs.hilt.viewmodel.compose)
     kapt(libs.hilt.android.compiler)
 
     // room

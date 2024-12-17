@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_field_placeholder">Search</string>
+    <string name="additional_options_label">Additional options:</string>
+    <string name="show_more_label">Show more</string>
+    <string name="show_less_label">Show less</string>
+    <string name="see_all_review_label">See all reviews</string>
+    <string name="apply_label">Apply</string>
+</resources>
