@@ -26,8 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.jahez.RatingView
-import com.jahez.home.model.HomeUiState
-import com.jahez.home.model.MerchantListItemUiState
+import com.jahez.home.model.MerchantUiModel
 import com.jahez.ui.theme.JahezTheme
 import com.jahez.ui.theme.primary_500
 
@@ -35,7 +34,7 @@ import com.jahez.ui.theme.primary_500
 @Composable
 fun MerchantListItem(
     modifier: Modifier = Modifier,
-    merchantUiModel: MerchantListItemUiState,
+    merchantUiModel: MerchantUiModel,
     onFavoritClick: (Boolean) -> Unit,
     onItemClick: () -> Unit
 ) {
@@ -74,7 +73,7 @@ fun MerchantListItem(
             ) {
 
                 Text(
-                    text = merchantUiModel.merchantName,
+                    text = merchantUiModel.merchantName.localize("en"),
                     style = MaterialTheme.typography.titleMedium
                 )
 
@@ -115,7 +114,7 @@ private fun PreviewMerchantListItem() {
 
     JahezTheme {
         MerchantListItem(
-            merchantUiModel = MerchantListItemUiState.getMock(),
+            merchantUiModel = MerchantUiModel.getMock(),
             onFavoritClick = { isFavorit -> }) {}
     }
 
@@ -129,7 +128,7 @@ private fun DarkPreviewMerchantListItem() {
 
     JahezTheme {
         MerchantListItem(
-            merchantUiModel = MerchantListItemUiState.getMock(),
+            merchantUiModel = MerchantUiModel.getMock(),
             onFavoritClick = { isFavorit -> }) {}
     }
 

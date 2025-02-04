@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -52,6 +53,7 @@ fun DependencyHandlerScope.jetpackLibs() {
     // hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.viewmodel.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
 
     // room
@@ -72,9 +74,11 @@ fun DependencyHandlerScope.androidX() {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.icon.extend)
+    implementation(libs.androidx.navigation.compose)
 }
 
 
 fun DependencyHandlerScope.kotlinx() {
     implementation(libs.android.coroutine)
+    implementation(libs.kotlinx.serialization.json)
 }

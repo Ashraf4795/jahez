@@ -19,6 +19,7 @@ val fakeHomePageContent = HomePageContent(
             english = "Delicious Food Offers"
         ),
         items = listOf(
+
             Offer(
                 id = "offer_001",
                 title = LocalizedContent(
@@ -75,6 +76,114 @@ val fakeHomePageContent = HomePageContent(
             ),
             Offer(
                 id = "offer_003",
+                title = LocalizedContent(
+                    arabic = "بيتزا عائلية بسعر خاص",
+                    english = "Family-Sized Pizza at a Special Price"
+                ),
+                provider = RemoteMerchant(
+                    merchantId = "merchant_002",
+                    merchantName = LocalizedContent(
+                        arabic = "بيتزا بارتي",
+                        english = "Pizza Party"
+                    ),
+                    merchantThumbnail = "https://example.com/images/pizza_party.png",
+                    merchantRate = Rate(
+                        rate = "4.5",
+                        rateCount = 890
+                    ),
+                    deliveryMetadata = DeliveryMetadata(
+                        estimatedDeliveryTime = 40,
+                        estimatedDeliveryFee = 4.0f,
+                        currency = LocalizedContent(
+                            arabic = "ريال سعودي",
+                            english = "SAR"
+                        )
+                    )
+                )
+            ),
+            Offer(
+                id = "offer_004",
+                title = LocalizedContent(
+                    arabic = "بيتزا عائلية بسعر خاص",
+                    english = "Family-Sized Pizza at a Special Price"
+                ),
+                provider = RemoteMerchant(
+                    merchantId = "merchant_002",
+                    merchantName = LocalizedContent(
+                        arabic = "بيتزا بارتي",
+                        english = "Pizza Party"
+                    ),
+                    merchantThumbnail = "https://example.com/images/pizza_party.png",
+                    merchantRate = Rate(
+                        rate = "4.5",
+                        rateCount = 890
+                    ),
+                    deliveryMetadata = DeliveryMetadata(
+                        estimatedDeliveryTime = 40,
+                        estimatedDeliveryFee = 4.0f,
+                        currency = LocalizedContent(
+                            arabic = "ريال سعودي",
+                            english = "SAR"
+                        )
+                    )
+                )
+            ),
+            Offer(
+                id = "offer_004",
+                title = LocalizedContent(
+                    arabic = "بيتزا عائلية بسعر خاص",
+                    english = "Family-Sized Pizza at a Special Price"
+                ),
+                provider = RemoteMerchant(
+                    merchantId = "merchant_002",
+                    merchantName = LocalizedContent(
+                        arabic = "بيتزا بارتي",
+                        english = "Pizza Party"
+                    ),
+                    merchantThumbnail = "https://example.com/images/pizza_party.png",
+                    merchantRate = Rate(
+                        rate = "4.5",
+                        rateCount = 890
+                    ),
+                    deliveryMetadata = DeliveryMetadata(
+                        estimatedDeliveryTime = 40,
+                        estimatedDeliveryFee = 4.0f,
+                        currency = LocalizedContent(
+                            arabic = "ريال سعودي",
+                            english = "SAR"
+                        )
+                    )
+                )
+            ),
+            Offer(
+                id = "offer_004",
+                title = LocalizedContent(
+                    arabic = "بيتزا عائلية بسعر خاص",
+                    english = "Family-Sized Pizza at a Special Price"
+                ),
+                provider = RemoteMerchant(
+                    merchantId = "merchant_002",
+                    merchantName = LocalizedContent(
+                        arabic = "بيتزا بارتي",
+                        english = "Pizza Party"
+                    ),
+                    merchantThumbnail = "https://example.com/images/pizza_party.png",
+                    merchantRate = Rate(
+                        rate = "4.5",
+                        rateCount = 890
+                    ),
+                    deliveryMetadata = DeliveryMetadata(
+                        estimatedDeliveryTime = 40,
+                        estimatedDeliveryFee = 4.0f,
+                        currency = LocalizedContent(
+                            arabic = "ريال سعودي",
+                            english = "SAR"
+                        )
+                    )
+                )
+            ),
+            Offer(
+                id = "offer_004",
                 title = LocalizedContent(
                     arabic = "بيتزا عائلية بسعر خاص",
                     english = "Family-Sized Pizza at a Special Price"
@@ -218,6 +327,205 @@ val fakeHomePageContent = HomePageContent(
             ),
             RemoteMerchant(
                 merchantId = "merchant_005",
+                merchantName = LocalizedContent(
+                    arabic = "السوشي الياباني",
+                    english = "Japanese Sushi"
+                ),
+                merchantThumbnail = "https://example.com/images/japanese_sushi.png",
+                merchantRate = Rate(
+                    rate = "4.6",
+                    rateCount = 1120
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 40,
+                    estimatedDeliveryFee = 5.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_006",
+                merchantName = LocalizedContent(
+                    arabic = "شاورما الريم",
+                    english = "Al-Reem Shawarma"
+                ),
+                merchantThumbnail = "https://example.com/images/al_reem_shawarma.png",
+                merchantRate = Rate(
+                    rate = "4.9",
+                    rateCount = 2300
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 25,
+                    estimatedDeliveryFee = 3.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_007",
+                merchantName = LocalizedContent(
+                    arabic = "مطعم المذاق الإيطالي",
+                    english = "The Italian Taste"
+                ),
+                merchantThumbnail = "https://example.com/images/the_italian_taste.png",
+                merchantRate = Rate(
+                    rate = "4.7",
+                    rateCount = 1500
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 35,
+                    estimatedDeliveryFee = 4.5f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_008",
+                merchantName = LocalizedContent(
+                    arabic = "السوشي الياباني",
+                    english = "Japanese Sushi"
+                ),
+                merchantThumbnail = "https://example.com/images/japanese_sushi.png",
+                merchantRate = Rate(
+                    rate = "4.6",
+                    rateCount = 1120
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 40,
+                    estimatedDeliveryFee = 5.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_009",
+                merchantName = LocalizedContent(
+                    arabic = "السوشي الياباني",
+                    english = "Japanese Sushi"
+                ),
+                merchantThumbnail = "https://example.com/images/japanese_sushi.png",
+                merchantRate = Rate(
+                    rate = "4.6",
+                    rateCount = 1120
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 40,
+                    estimatedDeliveryFee = 5.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_0010",
+                merchantName = LocalizedContent(
+                    arabic = "السوشي الياباني",
+                    english = "Japanese Sushi"
+                ),
+                merchantThumbnail = "https://example.com/images/japanese_sushi.png",
+                merchantRate = Rate(
+                    rate = "4.6",
+                    rateCount = 1120
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 40,
+                    estimatedDeliveryFee = 5.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ), RemoteMerchant(
+                merchantId = "merchant_0011",
+                merchantName = LocalizedContent(
+                    arabic = "شاورما الريم",
+                    english = "Al-Reem Shawarma"
+                ),
+                merchantThumbnail = "https://example.com/images/al_reem_shawarma.png",
+                merchantRate = Rate(
+                    rate = "4.9",
+                    rateCount = 2300
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 25,
+                    estimatedDeliveryFee = 3.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_0012",
+                merchantName = LocalizedContent(
+                    arabic = "مطعم المذاق الإيطالي",
+                    english = "The Italian Taste"
+                ),
+                merchantThumbnail = "https://example.com/images/the_italian_taste.png",
+                merchantRate = Rate(
+                    rate = "4.7",
+                    rateCount = 1500
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 35,
+                    estimatedDeliveryFee = 4.5f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_0013",
+                merchantName = LocalizedContent(
+                    arabic = "السوشي الياباني",
+                    english = "Japanese Sushi"
+                ),
+                merchantThumbnail = "https://example.com/images/japanese_sushi.png",
+                merchantRate = Rate(
+                    rate = "4.6",
+                    rateCount = 1120
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 40,
+                    estimatedDeliveryFee = 5.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_0014",
+                merchantName = LocalizedContent(
+                    arabic = "السوشي الياباني",
+                    english = "Japanese Sushi"
+                ),
+                merchantThumbnail = "https://example.com/images/japanese_sushi.png",
+                merchantRate = Rate(
+                    rate = "4.6",
+                    rateCount = 1120
+                ),
+                deliveryMetadata = DeliveryMetadata(
+                    estimatedDeliveryTime = 40,
+                    estimatedDeliveryFee = 5.0f,
+                    currency = LocalizedContent(
+                        arabic = "ريال سعودي",
+                        english = "SAR"
+                    )
+                )
+            ),
+            RemoteMerchant(
+                merchantId = "merchant_0015",
                 merchantName = LocalizedContent(
                     arabic = "السوشي الياباني",
                     english = "Japanese Sushi"

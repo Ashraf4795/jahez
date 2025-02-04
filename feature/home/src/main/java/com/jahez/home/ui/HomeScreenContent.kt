@@ -1,25 +1,34 @@
 package com.jahez.home.ui
 
-import androidx.compose.foundation.lazy.LazyListScope
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.jahez.core.AppRoute
 import com.jahez.home.HomePageContent
+import com.jahez.home.ui.sections.OfferSection
+import com.jahez.inputs.SearchField
 
-fun LazyListScope.HomeScreenContent(
-    homePageContent: HomePageContent
+@Composable
+fun HomeScreenContent(
+    modifier: Modifier,
+    homePageContent: HomePageContent,
+    navigateTo: (AppRoute) -> Unit
 ) {
-    homePageContent.offersWidget?.let { offerWidget ->
-        items(offerWidget.items.size, key = { offerWidget.items[it].id }) { index ->
-            val offerItem = offerWidget.items[index]
-            Text("offer: ${offerItem.title.english}")
+    LazyColumn (
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ){
+        item {
+            SearchField() {}
         }
-    }
 
-    homePageContent.merchantsWidget?.let { merchantsWidget ->
-        items(merchantsWidget.items.size, key = { merchantsWidget.items[it].merchantId }) { index ->
-            val offerItem = merchantsWidget.items[index]
-            Text("offer: ${offerItem.merchantName.english}")
+        homePageContent.offersWidget?.let { offerWidget ->
+            OfferSection(modifier = modifier, offersWidget = offerWidget) {
+                navigateTo(AppRoute.OffersScreenRoute)
+            }
         }
     }
 }

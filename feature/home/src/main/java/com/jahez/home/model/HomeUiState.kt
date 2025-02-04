@@ -1,5 +1,6 @@
 package com.jahez.home.model
 
+import com.jahez.common.LocalizedContent
 import com.jahez.home.HomePageContent
 
 sealed interface HomeUiState {
@@ -11,9 +12,9 @@ sealed interface HomeUiState {
 
 }
 
-data class MerchantListItemUiState (
+data class MerchantUiModel (
     val merchantId: String,
-    val merchantName: String,
+    val merchantName: LocalizedContent,
     val merchantImageUrl: String,
     val isFavorite: Boolean,
     val estimatedDeliveryTime: String,
@@ -24,9 +25,9 @@ data class MerchantListItemUiState (
 ) {
     fun getDeliveryMetadata() = "$estimatedDeliveryTime . $estimatedDeliveryFees $currency"
     companion object {
-        fun getMock() = MerchantListItemUiState(
+        fun getMock() = MerchantUiModel(
             merchantId = "12345",
-            merchantName = "Test Merchant",
+            merchantName = LocalizedContent("عبده كفته", "abdo kufta"),
             merchantImageUrl = "https://example.com/image.jpg",
             isFavorite = false,
             estimatedDeliveryTime = "30 mins",

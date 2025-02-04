@@ -65,6 +65,7 @@ dependencies {
 
 fun DependencyHandlerScope.projects() {
     implementation(project(":ui"))
+    implementation(project(":core"))
     implementation(project(":feature:home"))
     implementation(project(":feature:product_details"))
 }
@@ -86,6 +87,8 @@ fun DependencyHandlerScope.androidX() {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
 }
 
 fun DependencyHandlerScope.jetpackLibs() {

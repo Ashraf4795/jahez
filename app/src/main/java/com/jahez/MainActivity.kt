@@ -14,13 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContent
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.lifecycle.viewmodel.viewModelFactory
-import com.jahez.home.HomeViewModel
-import com.jahez.home.ui.HomeHeader
-import com.jahez.product_details.ProductDetailScreen
+import com.jahez.ui.JahezApp
 import com.jahez.ui.theme.JahezTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,7 +32,9 @@ class MainActivity : ComponentActivity() {
                         .padding(WindowInsets.displayCutout.asPaddingValues()),
                     contentWindowInsets = WindowInsets.safeContent,
                 ) { innerPadding ->
-                    ProductDetailScreen(Modifier.padding(innerPadding)) {}
+                    JahezApp(
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
