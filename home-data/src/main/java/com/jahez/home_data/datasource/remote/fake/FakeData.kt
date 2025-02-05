@@ -1,10 +1,12 @@
 package com.jahez.home_data.datasource.remote.fake
 
+import com.jahez.common.Category
 import com.jahez.common.DeliveryMetadata
 import com.jahez.common.LocalizedContent
 import com.jahez.common.Offer
 import com.jahez.common.Rate
 import com.jahez.data_model.RemoteMerchant
+import com.jahez.home.CategoriesWidget
 import com.jahez.home.HomePageContent
 import com.jahez.home.MerchantsWidget
 import com.jahez.home.OffersWidget
@@ -12,6 +14,71 @@ import com.jahez.home.OffersWidget
 
 val fakeHomePageContent = HomePageContent(
     id = "home_001",
+    categoriesWidget = CategoriesWidget(
+        id = "categories_widget_001",
+        categories = listOf(
+            Category(
+                id = "1",
+                categoryTitle = LocalizedContent("برجر", "Burger"),
+                categoryImage = "https://example.com/images/burger.jpg",
+                deeplink = "app://category/burger"
+            ),
+            Category(
+                id = "2",
+                categoryTitle = LocalizedContent("بيتزا", "Pizza"),
+                categoryImage = "https://example.com/images/pizza.jpg",
+                deeplink = "app://category/pizza"
+            ),
+            Category(
+                id = "3",
+                categoryTitle = LocalizedContent("سوشي", "Sushi"),
+                categoryImage = "https://example.com/images/sushi.jpg",
+                deeplink = "app://category/sushi"
+            ),
+            Category(
+                id = "4",
+                categoryTitle = LocalizedContent("مشاوي", "Grill"),
+                categoryImage = "https://example.com/images/grill.jpg",
+                deeplink = "app://category/grill"
+            ),
+            Category(
+                id = "5",
+                categoryTitle = LocalizedContent("حلويات", "Desserts"),
+                categoryImage = "https://example.com/images/desserts.jpg",
+                deeplink = "app://category/desserts"
+            ),
+            Category(
+                id = "6",
+                categoryTitle = LocalizedContent("مشروبات", "Beverages"),
+                categoryImage = "https://example.com/images/beverages.jpg",
+                deeplink = "app://category/beverages"
+            ),
+            Category(
+                id = "7",
+                categoryTitle = LocalizedContent("فطور", "Breakfast"),
+                categoryImage = "https://example.com/images/breakfast.jpg",
+                deeplink = "app://category/breakfast"
+            ),
+            Category(
+                id = "8",
+                categoryTitle = LocalizedContent("سلطات", "Salads"),
+                categoryImage = "https://example.com/images/salads.jpg",
+                deeplink = "app://category/salads"
+            ),
+            Category(
+                id = "9",
+                categoryTitle = LocalizedContent("وجبات سريعة", "Fast Food"),
+                categoryImage = "https://example.com/images/fastfood.jpg",
+                deeplink = "app://category/fastfood"
+            ),
+            Category(
+                id = "10",
+                categoryTitle = LocalizedContent("مأكولات بحرية", "Seafood"),
+                categoryImage = "https://example.com/images/seafood.jpg",
+                deeplink = "app://category/seafood"
+            )
+        )
+    ),
     offersWidget = OffersWidget(
         id = "offers_widget_001",
         title = LocalizedContent(
@@ -19,7 +86,6 @@ val fakeHomePageContent = HomePageContent(
             english = "Delicious Food Offers"
         ),
         items = listOf(
-
             Offer(
                 id = "offer_001",
                 title = LocalizedContent(

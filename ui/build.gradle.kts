@@ -36,6 +36,7 @@ dependencies {
 
 fun DependencyHandlerScope.projects() {
     implementation(project(":core"))
+    implementation(project(":data_model"))
     implementation(project(":common_res"))
 }
 
