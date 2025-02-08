@@ -25,14 +25,30 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jahez.common_resources.R
-
 import com.jahez.ui.theme.JahezTheme
 
 
 @Composable
-fun SearchField(modifier: Modifier = Modifier, placeHolder: String = "", onValueChange: (String) -> Unit) {
-    var searchText by remember { mutableStateOf("") }
+fun SearchField(
+    modifier: Modifier = Modifier,
+    placeHolder: String = "",
+    onValueChange: (String) -> Unit
+) {
+   var searchText by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+
+//    val hint = remember {
+//        mutableStateOf(LocalizedContent("تااااكل ايه؟", "Wanna eat?"))
+//    }
+//    var hintPlaceHolder by remember { mutableStateOf("") }
+//
+//    LaunchedEffect(hint) {
+//        delay(500)
+//        for (ch in hint.value.localize("ar")) {
+//            hintPlaceHolder += ch
+//            delay(100)
+//        }
+//    }
 
     OutlinedTextField(
         modifier = modifier.fillMaxWidth(),
@@ -41,10 +57,12 @@ fun SearchField(modifier: Modifier = Modifier, placeHolder: String = "", onValue
             searchText = it
             onValueChange(it)
         },
-        placeholder = { Text(
-            text = placeHolder,
-            style = MaterialTheme.typography.titleMedium
-        ) },
+        placeholder = {
+            Text(
+                text = placeHolder,
+                style = MaterialTheme.typography.titleMedium
+            )
+        },
         shape = RoundedCornerShape(8.dp),
         trailingIcon = {
             if (searchText.isNotEmpty()) {
@@ -69,7 +87,7 @@ fun SearchField(modifier: Modifier = Modifier, placeHolder: String = "", onValue
         colors = OutlinedTextFieldDefaults.colors(
             focusedContainerColor = MaterialTheme.colorScheme.outlineVariant,
             unfocusedContainerColor = MaterialTheme.colorScheme.outlineVariant,
-            cursorColor = MaterialTheme.colorScheme.primary,
+            cursorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
             focusedBorderColor = MaterialTheme.colorScheme.outline,
             unfocusedBorderColor = MaterialTheme.colorScheme.primary
         ),

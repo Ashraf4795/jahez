@@ -23,15 +23,18 @@ data class MerchantUiModel (
     val rating: Float,
     val rateCount: Int,
 ) {
-    fun getDeliveryMetadata() = "$estimatedDeliveryTime . $estimatedDeliveryFees $currency"
+    fun getDeliveryMetadata(): String? {
+        return if (estimatedDeliveryFees.isBlank())  null
+        else "$estimatedDeliveryTime . $estimatedDeliveryFees $currency"
+    }
     companion object {
         fun getMock() = MerchantUiModel(
             merchantId = "12345",
-            merchantName = LocalizedContent("عبده كفته", "abdo kufta"),
+            merchantName = LocalizedContent("عبده كفته", "Abdo kufta"),
             merchantImageUrl = "https://example.com/image.jpg",
             isFavorite = false,
             estimatedDeliveryTime = "30 mins",
-            estimatedDeliveryFees = "5.00",
+            estimatedDeliveryFees = "50.00",
             currency = "L.E",
             rating = 4.5f,
             rateCount = 150

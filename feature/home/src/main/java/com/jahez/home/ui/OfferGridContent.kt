@@ -13,6 +13,7 @@ import com.jahez.home.OffersWidget
 fun LazyListScope.OfferGridContent(
     offersWidget: OffersWidget,
 ) {
+
     val rows = offersWidget.items.chunked(2)
     items(rows.size) { index ->
         val offersRow = rows[index]

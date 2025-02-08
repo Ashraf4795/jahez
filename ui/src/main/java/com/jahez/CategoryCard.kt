@@ -4,9 +4,9 @@ import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -24,22 +24,22 @@ import com.jahez.ui.theme.JahezTheme
 @Composable
 fun CategoryCard(modifier: Modifier = Modifier, category: Category) {
     Card(
-        modifier = modifier.size(70.dp),
+        modifier = modifier,
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors().copy(
             containerColor = MaterialTheme.colorScheme.surface,
         )
     ) {
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.wrapContentSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
                 modifier = Modifier
                     .padding(8.dp)
-                    .size(32.dp),
-                painter = painterResource(com.jahez.common_resources.R.drawable.burger),
+                    .size(60.dp),
+                painter = painterResource(com.jahez.common_resources.R.drawable.pizza),
                 contentDescription = "burger category",
             )
             Text(category.categoryTitle.localize("en"), style = MaterialTheme.typography.labelMedium)
