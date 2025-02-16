@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.jahez.actions.Section
 import com.jahez.home.MerchantsWidget
 import com.jahez.home.R
-import com.jahez.home.model.MerchantUiModel
+import com.jahez.home.state.MerchantUiModel
 import com.jahez.home.ui.MerchantListItem
 import com.jahez.home_data.datasource.remote.fake.fakeHomePageContent
 
@@ -38,7 +38,9 @@ fun LazyListScope.MerchantSection(
                 modifier = Modifier.padding(bottom = 16.dp),
                 merchantUiModel = MerchantUiModel.getMock(),
                 onFavoritClick = {},
-            ) { }
+            ) {
+
+            }
         }
     }
 }

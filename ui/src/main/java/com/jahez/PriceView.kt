@@ -34,6 +34,7 @@ fun PriceView(
     Row(modifier, verticalAlignment = Alignment.CenterVertically) {
         if (originalPrice != null && originalPrice > 0f) {
             Text(
+                modifier = Modifier.padding(end = 12.dp),
                 text = "$currency $originalPrice",
                 style = MaterialTheme.typography.labelLarge.copy(
                     fontWeight = FontWeight.Normal,
@@ -45,7 +46,7 @@ fun PriceView(
         }
         if (actualPrice != null && actualPrice > 0f) {
             Text(
-                modifier = Modifier.padding(horizontal = 12.dp),
+                modifier = Modifier,
                 text = "$currency $actualPrice",
                 style = MaterialTheme.typography.labelLarge.copy(
                     fontWeight = FontWeight.SemiBold,

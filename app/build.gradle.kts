@@ -68,6 +68,7 @@ fun DependencyHandlerScope.projects() {
     implementation(project(":core"))
     implementation(project(":feature:home"))
     implementation(project(":feature:product_details"))
+    implementation(project(":feature:merchant-menu"))
 }
 
 fun DependencyHandlerScope.androidXtest() {

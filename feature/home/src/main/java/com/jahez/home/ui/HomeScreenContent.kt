@@ -83,7 +83,13 @@ fun HomeScreenContent(
                 modifier = Modifier.padding(top = 16.dp),
                 merchantsWidget = merchantsWidget
             ) {
-                //navigateTo(AppRoute.OffersScreenRoute)
+                // todo: change routing args
+                navigateTo(
+                    AppRoute.MerchantMenuScreenRoute(
+                        merchantId = "M001",
+                        merchantName = "merchant-name"
+                    )
+                )
             }
         }
     }

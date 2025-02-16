@@ -7,5 +7,8 @@ sealed class AppRoute {
     @Serializable data object AddressScreenRoute : AppRoute()
     @Serializable data object CartScreenRoute : AppRoute()
     @Serializable data object OffersScreenRoute : AppRoute()
-    @Serializable data object MerchantsScreenRoute : AppRoute()
+    @Serializable data class MerchantMenuScreenRoute(
+        val merchantId: String,
+        val merchantName: String
+    ) : AppRoute()
 }

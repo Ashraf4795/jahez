@@ -30,6 +30,7 @@ hiltViewModelCompose = "2.8.5"
 kotlinxSerializationJson = "1.6.3"
 androidxNavigation = "2.8.4"
 androidxHiltNavigationCompose = "1.2.0"
+tap_sync_version = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -65,6 +66,7 @@ firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 firebase-storage = { module = "com.google.firebase:firebase-storage" }
+tap-sync = { module = "io.github.ahmad-hamwi:tabsync-compose", version.ref = "tap_sync_version"}
 
 ktor-client = { module = "io.ktor:ktor-client-core", version.ref = "ktor_version"}
 ktor-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor_version"}

@@ -8,7 +8,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jahez.core.AppRoute
 import com.jahez.home.HomeViewModel
-import com.jahez.home.model.HomeUiState
+import com.jahez.home.state.HomeUiState
 
 @Composable
 fun HomeScreen(

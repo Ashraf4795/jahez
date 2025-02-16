@@ -1,4 +1,4 @@
-package com.jahez.home.model
+package com.jahez.home.state
 
 import com.jahez.common.LocalizedContent
 import com.jahez.home.HomePageContent
@@ -9,7 +9,6 @@ sealed interface HomeUiState {
     data class Success(
         val homePageContent: HomePageContent,
     ): HomeUiState
-
 }
 
 data class MerchantUiModel (

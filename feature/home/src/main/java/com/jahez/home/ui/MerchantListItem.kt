@@ -30,7 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.jahez.RatingView
-import com.jahez.home.model.MerchantUiModel
+import com.jahez.home.state.MerchantUiModel
 import com.jahez.ui.theme.JahezTheme
 import com.jahez.ui.theme.primary_500
 
