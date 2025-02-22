@@ -42,19 +42,25 @@ fun TopBar(
 @Composable
 fun TopBar(
     modifier: Modifier = Modifier,
-    leading: @Composable () -> Unit,
+    leading: @Composable (() -> Unit)? = null,
     content: @Composable () -> Unit,
-    trailing: @Composable () -> Unit
+    trailing: @Composable (() -> Unit)? = null
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        leading()
-        Spacer(modifier = Modifier.weight(1f))
+        if (leading != null) {
+            leading()
+            Spacer(modifier = Modifier.weight(1f))
+        }
+
         content()
-        Spacer(modifier = Modifier.weight(1f))
-        trailing()
+
+        if (trailing != null) {
+            Spacer(modifier = Modifier.weight(1f))
+            trailing()
+        }
     }
 }
 

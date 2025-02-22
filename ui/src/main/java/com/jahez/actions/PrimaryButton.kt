@@ -1,6 +1,7 @@
 package com.jahez.actions
 
 import android.content.res.Configuration
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,6 +39,7 @@ import com.jahez.ui.theme.primary_500
 fun PrimaryButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    contentPaddingValues: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     leading: @Composable () -> Unit = {},
     content: @Composable () -> Unit,
     trailing: @Composable () -> Unit = {},
@@ -54,7 +57,38 @@ fun PrimaryButton(
             disabledContainerColor = primary_200,
             disabledContentColor = Color.White
         ),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        contentPadding = contentPaddingValues
+    ) {
+        leading()
+        content()
+        trailing()
+    }
+}
+
+@Composable
+fun OutlinePrimaryButton(
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    contentPaddingValues: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+    leading: @Composable () -> Unit = {},
+    content: @Composable () -> Unit,
+    trailing: @Composable () -> Unit = {},
+    onClick: () -> Unit
+) {
+
+    OutlinedButton(
+        modifier = modifier,
+        onClick = onClick,
+        enabled = enabled,
+        shape = RoundedCornerShape(28.dp),
+        colors = ButtonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = primary_500,
+            disabledContainerColor = primary_200,
+            disabledContentColor = Color.White
+        ),
+        contentPadding = contentPaddingValues ,
+        border = BorderStroke(2.dp, primary_500)
     ) {
         leading()
         content()
@@ -115,6 +149,24 @@ fun PrimaryButtonPreview() {
                     content = {
                         Text("Next")
                     }, enabled = false, leading = {
+                        Icon(
+                            imageVector = Icons.Default.Star,
+                            contentDescription = "Leading Icon",
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }) {}
+
+                OutlinePrimaryButton (
+                    modifier = Modifier.fillMaxWidth(),
+                    content = {
+                        Text("Next")
+                    }, leading = {
+                        Icon(
+                            imageVector = Icons.Default.Star,
+                            contentDescription = "Leading Icon",
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }, trailing = {
                         Icon(
                             imageVector = Icons.Default.Star,
                             contentDescription = "Leading Icon",

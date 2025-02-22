@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_basket_screen_label">السلة</string>
+    <string name="order_summary_label">طلباتك</string>
+    <string name="add_item_button_label">إضافة هنصر</string>
+    <string name="subtotal_label">المجموع</string>
+    <string name="delivery_fee_label">رسوم التوصيل</string>
+    <string name="discount_label">خصم</string>
+    <string name="total_label">الإجمالي</string>
+    <string name="place_order_label">اطلب</string>
+</resources>

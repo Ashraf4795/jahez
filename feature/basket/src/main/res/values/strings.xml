@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_basket_screen_label">My basket</string>
+    <string name="order_summary_label">Order summary</string>
+    <string name="add_item_button_label">Add item</string>
+    <string name="subtotal_label">Subtotal</string>
+    <string name="delivery_fee_label">Delivery fees</string>
+    <string name="discount_label">Discount</string>
+    <string name="total_label">Total</string>
+    <string name="place_order_label">Place order</string>
+</resources>

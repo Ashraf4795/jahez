@@ -34,7 +34,7 @@ internal fun HomeScreenImpl(
         HomeHeader(
             modifier = Modifier,
             onAddressClick = { navigateTo(AppRoute.AddressScreenRoute) },
-            onCartClick = { navigateTo(AppRoute.CartScreenRoute) }
+            onCartClick = { navigateTo(AppRoute.BasketScreenRoute) }
         )
 
         when (homeUiState) {

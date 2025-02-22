@@ -5,8 +5,12 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -24,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jahez.actions.JIcon
@@ -34,66 +39,72 @@ fun Counter(
     modifier: Modifier = Modifier,
     min: Int = 1,
     max: Int = 100,
+    counterLabelStyle: TextStyle = MaterialTheme.typography.headlineLarge,
     onCounterChange: (Int) -> Unit
 ) {
     var count by remember(min) {
         mutableIntStateOf(min)
     }
 
-    Row(
-        modifier = modifier
-            .semantics { contentDescription = "change item quantity" },
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
-    ) {
-        JIcon(
-            modifier = Modifier
-                .border(
-                    BorderStroke(
-                        1.dp,
-                        MaterialTheme.colorScheme.outline
-                    ),
-                    shape = CircleShape
-                )
-                .padding(8.dp),
-            imageVector = Icons.Filled.Remove,
-            enabled = count > min,
-            contentDescription = "decrement",
-            tint = MaterialTheme.colorScheme.onPrimary
+    Box(Modifier.width(IntrinsicSize.Max)) {
+        Row(
+            modifier = modifier
+                .wrapContentSize()
+                .semantics { contentDescription = "change item quantity" },
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            if (count > min) {
-                count--
-                onCounterChange(count)
+            JIcon(
+                modifier = Modifier
+                    .border(
+                        BorderStroke(
+                            1.dp,
+                            MaterialTheme.colorScheme.onPrimary
+                        ),
+                        shape = CircleShape
+                    )
+                    .padding(8.dp),
+                imageVector = Icons.Filled.Remove,
+                enabled = count > min,
+                contentDescription = "decrement",
+                tint = MaterialTheme.colorScheme.onPrimary
+            ) {
+                if (count > min) {
+                    count--
+                    onCounterChange(count)
+                }
             }
-        }
 
-        AnimatedContent(targetState = count) { targetCount ->
-            Text(
-                text = targetCount.toString(),
-                style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.padding(horizontal = 16.dp),
-                color = MaterialTheme.colorScheme.onPrimary,
-            )
-        }
-
-        JIcon(
-            modifier = Modifier
-                .border(
-                    BorderStroke(
-                        1.dp,
-                        MaterialTheme.colorScheme.outline
-                    ),
-                    shape = CircleShape
+            AnimatedContent(targetState = count) { targetCount ->
+                Text(
+                    text = targetCount.toString(),
+                    style = counterLabelStyle,
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp)
+                        .weight(1f),
+                    color = MaterialTheme.colorScheme.onPrimary,
                 )
-                .padding(8.dp),
-            imageVector = Icons.Filled.Add,
-            enabled = count < max,
-            contentDescription = "increment",
-            tint = MaterialTheme.colorScheme.onPrimary
-        ) {
-            if (count < max) {
-                count++
-                onCounterChange(count)
+            }
+
+            JIcon(
+                modifier = Modifier
+                    .border(
+                        BorderStroke(
+                            1.dp,
+                            MaterialTheme.colorScheme.onPrimary
+                        ),
+                        shape = CircleShape
+                    )
+                    .padding(8.dp),
+                imageVector = Icons.Filled.Add,
+                enabled = count < max,
+                contentDescription = "increment",
+                tint = MaterialTheme.colorScheme.onPrimary
+            ) {
+                if (count < max) {
+                    count++
+                    onCounterChange(count)
+                }
             }
         }
     }
@@ -104,7 +115,8 @@ fun Counter(
 private fun CounterPreview() {
     JahezTheme {
         Card(
-            colors = CardDefaults.cardColors().copy(containerColor = MaterialTheme.colorScheme.primary)
+            colors = CardDefaults.cardColors()
+                .copy(containerColor = MaterialTheme.colorScheme.primary)
         ) {
             Counter() {}
         }
@@ -116,7 +128,8 @@ private fun CounterPreview() {
 private fun DarkCounterPreview() {
     JahezTheme {
         Card(
-            colors = CardDefaults.cardColors().copy(containerColor = MaterialTheme.colorScheme.primary)
+            colors = CardDefaults.cardColors()
+                .copy(containerColor = MaterialTheme.colorScheme.primary)
         ) {
             Counter() {}
         }
