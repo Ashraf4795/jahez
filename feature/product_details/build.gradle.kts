@@ -48,6 +48,7 @@ dependencies {
 fun DependencyHandlerScope.projects() {
     implementation(project(":ui"))
     implementation(project(":common_res"))
+    implementation(project(":navigation"))
 }
 fun DependencyHandlerScope.jetpackLibs() {
     // hilt
@@ -71,6 +72,7 @@ fun DependencyHandlerScope.androidX() {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.icon.extend)
+    implementation(libs.androidx.navigation.compose)
 }
 
 

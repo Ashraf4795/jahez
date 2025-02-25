@@ -1,6 +1,5 @@
-package com.jahez.merchant_menu
+package com.jahez.merchant_menu.screen
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material.icons.Icons
@@ -15,17 +14,38 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import com.ahmadhamwi.tabsync_compose.lazyListTabSync
 import com.jahez.TopBar
+import com.jahez.merchant_menu.MerchantMenuViewModel
 import com.jahez.merchant_menu.model.MenuSectionUiModel
 import com.jahez.merchant_menu.state.MerchantMenuUiState
 import com.jahez.merchant_menu.ui.MenuListItem
+import com.jahez.navigation.ProductDetailsNavArgs
+import com.jahez.navigation.navigateToProductDetailsScreen
 import com.jahez.product_details.ProductDetailsUiModel
 import com.jahez.ui.theme.JahezTheme
 
 @Composable
-fun MerchantMenuScreen(
+internal fun MerchantMenuScreen(
     viewModel: MerchantMenuViewModel = hiltViewModel(),
+    navController: NavController
+) {
+    MerchantMenuScreenImpl(
+        viewModel = viewModel,
+        onProductClicked = {
+            navController.navigateToProductDetailsScreen(
+                ProductDetailsNavArgs(it.productId)
+            )
+        },
+        onBackCList = { navController.popBackStack() }
+    )
+}
+
+@Composable
+private fun MerchantMenuScreenImpl(
+    viewModel: MerchantMenuViewModel = hiltViewModel(),
+    onProductClicked: (ProductDetailsUiModel) -> Unit,
     onBackCList: () -> Unit
 ) {
 
@@ -67,7 +87,10 @@ fun MerchantMenuScreen(
             }
 
             is MerchantMenuUiState.Success -> {
-                MerchantMenuContent(menuSections = merchantMenuUiState.menuSections)
+                MerchantMenuContent(
+                    menuSections = merchantMenuUiState.menuSections,
+                    onProductClicked = onProductClicked
+                )
             }
         }
 
@@ -77,8 +100,9 @@ fun MerchantMenuScreen(
 }
 
 @Composable
-internal fun MerchantMenuContent(
-    menuSections: List<MenuSectionUiModel>
+private fun MerchantMenuContent(
+    menuSections: List<MenuSectionUiModel>,
+    onProductClicked: (ProductDetailsUiModel) -> Unit
 ) {
     val (selectedTabIndex, setSelectedTabIndex, lazyListState) = lazyListTabSync(
         syncedIndices = menuSections.flatMap { it.items }.indices.toList()
@@ -93,14 +117,14 @@ internal fun MerchantMenuContent(
 
         LazyColumn(state = lazyListState, modifier = Modifier.fillMaxSize()) {
             itemsIndexed(menuSections) { _, section ->
-                MenuSection(section)
+                MenuSection(section, onProductClicked)
             }
         }
     }
 }
 
 @Composable
-fun SectionTabs(
+private fun SectionTabs(
     menuSections: List<MenuSectionUiModel>,
     selectedTabIndex: Int = 0,
     onSectionSelected: (Int, MenuSectionUiModel) -> Unit
@@ -128,7 +152,10 @@ fun SectionTabs(
 }
 
 @Composable
-fun MenuSection(section: MenuSectionUiModel) {
+private fun MenuSection(
+    section: MenuSectionUiModel,
+    onProductClicked: (ProductDetailsUiModel) -> Unit
+) {
     Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp)) {
         Text(
             text = section.title,
@@ -137,16 +164,19 @@ fun MenuSection(section: MenuSectionUiModel) {
         )
         Spacer(Modifier.height(8.dp))
         section.items.forEach { item ->
-            MenuListItem(modifier = Modifier.padding(bottom = 8.dp), product = item) {}
+            MenuListItem(
+                modifier = Modifier.padding(bottom = 8.dp),
+                product = item,
+                onProductClicked
+            )
         }
     }
 }
-
 
 @Preview
 @Composable
 private fun PreviewMerchantMenuScreen() {
     JahezTheme {
-        MerchantMenuScreen { }
+        MerchantMenuScreenImpl(onProductClicked = {}, onBackCList = {})
     }
 }

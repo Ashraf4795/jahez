@@ -48,6 +48,7 @@ fun DependencyHandlerScope.projects() {
     implementation(project(":home-data"))
     implementation(project(":data_model"))
     implementation(project(":core"))
+    implementation(project(":navigation"))
 }
 fun DependencyHandlerScope.jetpackLibs() {
     // hilt

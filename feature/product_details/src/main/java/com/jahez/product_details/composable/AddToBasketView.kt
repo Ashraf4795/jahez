@@ -1,4 +1,4 @@
-package com.jahez.composable
+package com.jahez.product_details.composable
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,4 @@
-package com.jahez.product_details
+package com.jahez.product_details.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.sp
 import com.jahez.PriceView
 import com.jahez.RatingView
 import com.jahez.common_resources.R
-import com.jahez.composable.AddToBasketView
-import com.jahez.composable.ProductOptions
+import com.jahez.product_details.composable.AddToBasketView
+import com.jahez.product_details.composable.ProductOptions
 import com.jahez.ui.theme.JahezTheme
 
 @Composable

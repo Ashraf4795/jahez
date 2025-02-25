@@ -39,15 +39,15 @@ import com.jahez.ui.theme.primary_500
 fun MerchantListItem(
     modifier: Modifier = Modifier,
     merchantUiModel: MerchantUiModel,
+    onMerchantClick: (String) -> Unit,
     onFavoritClick: (Boolean) -> Unit,
-    onItemClick: () -> Unit
 ) {
     var favoritIconState by remember(merchantUiModel) {
         mutableStateOf(merchantUiModel.isFavorite)
     }
 
     Card(modifier = modifier
-        .clickable { onItemClick() }
+        .clickable { onMerchantClick(merchantUiModel.merchantId) }
         .fillMaxWidth()
         .height(100.dp),
         colors = CardDefaults.cardColors().copy(
@@ -60,11 +60,13 @@ fun MerchantListItem(
             val (mImage, merchantInfo, mIsFavorite) = createRefs()
             val margin = 18.dp
             Image(
-                modifier = Modifier.constrainAs(mImage) {
-                    start.linkTo(parent.start)
-                    top.linkTo(parent.top)
-                    bottom.linkTo(parent.bottom)
-                }.clip(RoundedCornerShape(12.dp)),
+                modifier = Modifier
+                    .constrainAs(mImage) {
+                        start.linkTo(parent.start)
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                    }
+                    .clip(RoundedCornerShape(12.dp)),
                 painter = painterResource(
                     com.jahez.common_resources.R.drawable.place_holder_food_image,
                 ),
@@ -132,12 +134,15 @@ private fun PreviewMerchantListItem() {
     JahezTheme {
         MerchantListItem(
             merchantUiModel = MerchantUiModel.getMock(),
-            onFavoritClick = { isFavorit -> }) {}
+            onFavoritClick = { isFavorit -> },
+            onMerchantClick = {}
+        )
     }
 
 }
 
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
     showBackground = true
 )
 @Composable
@@ -146,7 +151,9 @@ private fun DarkPreviewMerchantListItem() {
     JahezTheme {
         MerchantListItem(
             merchantUiModel = MerchantUiModel.getMock(),
-            onFavoritClick = { isFavorit -> }) {}
+            onFavoritClick = { isFavorit -> },
+            onMerchantClick = {}
+        )
     }
 
 }

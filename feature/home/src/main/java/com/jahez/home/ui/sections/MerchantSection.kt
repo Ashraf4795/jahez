@@ -18,7 +18,8 @@ import com.jahez.home_data.datasource.remote.fake.fakeHomePageContent
 fun LazyListScope.MerchantSection(
     modifier: Modifier = Modifier,
     merchantsWidget: MerchantsWidget,
-    onMoreClick: () -> Unit
+    onMerchantClick: (String) -> Unit,
+    onMoreClick: () -> Unit,
 ) {
 
     item {
@@ -38,9 +39,8 @@ fun LazyListScope.MerchantSection(
                 modifier = Modifier.padding(bottom = 16.dp),
                 merchantUiModel = MerchantUiModel.getMock(),
                 onFavoritClick = {},
-            ) {
-
-            }
+                onMerchantClick = onMerchantClick
+            )
         }
     }
 }
@@ -51,7 +51,8 @@ fun LazyListScope.MerchantSection(
 private fun PreviewMerchantSection() {
     LazyColumn {
         MerchantSection(
-            merchantsWidget = fakeHomePageContent.merchantsWidget!!
+            merchantsWidget = fakeHomePageContent.merchantsWidget!!,
+            onMerchantClick = {},
         ) {}
     }
 }

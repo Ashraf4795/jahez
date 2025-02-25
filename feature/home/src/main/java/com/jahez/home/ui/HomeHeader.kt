@@ -33,7 +33,7 @@ import com.jahez.ui.theme.primary_500
 fun HomeHeader(
     modifier: Modifier = Modifier,
     address: String = "",
-    onCartClick: () -> Unit,
+    onBasketClick: () -> Unit,
     onAddressClick: () -> Unit
 ) {
     Row(
@@ -84,7 +84,7 @@ fun HomeHeader(
         // order cart
         Icon(
             modifier = Modifier
-                .clickable { onCartClick() }
+                .clickable { onBasketClick() }
                 .padding(24.dp),
             imageVector = ImageVector.vectorResource(R.drawable.cart_icon),
             contentDescription = "Order cart",
@@ -104,7 +104,7 @@ private fun HomeHeaderPreview() {
             HomeHeader(
                 modifier = Modifier,
                 address = "",
-                onCartClick = {},
+                onBasketClick = {},
                 onAddressClick = {},
             )
         }) { innerPadding ->
@@ -124,7 +124,7 @@ private fun DarkHomeHeaderPreview() {
             HomeHeader(
                 modifier = Modifier,
                 address = "",
-                onCartClick = {},
+                onBasketClick = {},
                 onAddressClick = {},
             )
         }) { innerPadding ->

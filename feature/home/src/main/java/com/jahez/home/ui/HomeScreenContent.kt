@@ -1,6 +1,5 @@
 package com.jahez.home.ui
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,12 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import com.jahez.core.AppRoute
 import com.jahez.home.HomePageContent
 import com.jahez.home.ui.sections.CategoriesSection
 import com.jahez.home.ui.sections.MerchantSection
 import com.jahez.home_data.datasource.remote.fake.fakeHomePageContent
 import com.jahez.inputs.SearchField
+import com.jahez.navigation.MerchantMenuNavArgs
 import com.jahez.ui.theme.JahezTheme
 import kotlinx.coroutines.flow.distinctUntilChanged
 
@@ -33,12 +32,11 @@ fun LazyListState.isScrolledToEnd(): Boolean {
     return layoutInfo.visibleItemsInfo.lastOrNull()?.index == layoutInfo.totalItemsCount - 1
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreenContent(
     modifier: Modifier = Modifier,
     homePageContent: HomePageContent,
-    navigateTo: (AppRoute) -> Unit
+    navigateToMenu: (MerchantMenuNavArgs) -> Unit
 ) {
 
     val listState = rememberLazyListState()
@@ -81,16 +79,17 @@ fun HomeScreenContent(
         homePageContent.merchantsWidget?.let { merchantsWidget ->
             MerchantSection(
                 modifier = Modifier.padding(top = 16.dp),
-                merchantsWidget = merchantsWidget
-            ) {
-                // todo: change routing args
-                navigateTo(
-                    AppRoute.MerchantMenuScreenRoute(
-                        merchantId = "M001",
-                        merchantName = "merchant-name"
+                merchantsWidget = merchantsWidget,
+                onMerchantClick = {
+                    navigateToMenu(
+                        MerchantMenuNavArgs(
+                            merchantId = "M001",
+                            merchantName = "merchant-name"
+                        )
                     )
-                )
-            }
+                },
+                onMoreClick = {}
+            )
         }
     }
 }

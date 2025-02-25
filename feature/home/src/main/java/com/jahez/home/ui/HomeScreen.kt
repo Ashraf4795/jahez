@@ -6,21 +6,26 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.jahez.core.AppRoute
+import androidx.navigation.NavController
 import com.jahez.home.HomeViewModel
 import com.jahez.home.state.HomeUiState
+import com.jahez.navigation.MerchantMenuNavArgs
+import com.jahez.navigation.navigateToBasketScreen
+import com.jahez.navigation.navigateToMerchantMenuScreen
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    navController: NavController,
     homeViewModel: HomeViewModel = hiltViewModel(),
-    navigateTo: (AppRoute) -> Unit,
 ) {
     val homeUiState: HomeUiState by homeViewModel.homeUiState.collectAsStateWithLifecycle()
     HomeScreenImpl(
         modifier = modifier,
         homeUiState = homeUiState,
-        navigateTo
+        navigateToBasket = { navController.navigateToBasketScreen() },
+        navigateToAddress = { /* navigate to address listing */},
+        navigateToMenu = { navController.navigateToMerchantMenuScreen(it) }
     )
 }
 
@@ -28,19 +33,21 @@ fun HomeScreen(
 internal fun HomeScreenImpl(
     modifier: Modifier = Modifier,
     homeUiState: HomeUiState,
-    navigateTo: (AppRoute) -> Unit
+    navigateToBasket: () -> Unit,
+    navigateToAddress: () -> Unit,
+    navigateToMenu: (MerchantMenuNavArgs) -> Unit
 ) {
     Column(modifier) {
         HomeHeader(
             modifier = Modifier,
-            onAddressClick = { navigateTo(AppRoute.AddressScreenRoute) },
-            onCartClick = { navigateTo(AppRoute.BasketScreenRoute) }
+            onAddressClick = navigateToAddress,
+            onBasketClick = navigateToBasket
         )
 
         when (homeUiState) {
             HomeUiState.Loading, HomeUiState.LoadingFailed -> Unit
             is HomeUiState.Success -> {
-                HomeScreenContent(Modifier, homeUiState.homePageContent, navigateTo)
+                HomeScreenContent(Modifier, homeUiState.homePageContent, navigateToMenu)
             }
         }
     }

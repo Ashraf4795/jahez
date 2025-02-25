@@ -1,22 +1,15 @@
-package com.jahez.basket.navigation
+package com.jahez.basket.route
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import com.jahez.basket.BasketScreen
 import com.jahez.basket.model.BasketOrderItem
 import com.jahez.basket.model.BasketUiState
 import com.jahez.basket.model.OrderPriceSummaryUiModel
-import com.jahez.core.AppRoute
+import com.jahez.navigation.routes.AppRoute
 import com.jahez.product_details.ProductDetailsUiModel
 
-
-fun NavController.navigateToBasketScreen(navOptions: NavOptionsBuilder.() -> Unit = {}) {
-    navigate(AppRoute.BasketScreenRoute) {
-        navOptions()
-    }
-}
 
 fun NavGraphBuilder.basketScreen(navController: NavController) {
     composable<AppRoute.BasketScreenRoute> {
