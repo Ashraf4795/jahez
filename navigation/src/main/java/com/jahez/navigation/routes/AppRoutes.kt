@@ -24,4 +24,7 @@ sealed class AppRoute {
     data class MerchantMenuScreenRoute(
         val merchantId: String
     ) : AppRoute()
+
+    @Serializable
+    data object SearchScreenRoute : AppRoute()
 }

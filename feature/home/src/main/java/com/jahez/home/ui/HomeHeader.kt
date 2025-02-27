@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -37,8 +38,7 @@ fun HomeHeader(
     onAddressClick: () -> Unit
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -46,15 +46,15 @@ fun HomeHeader(
         Column(
             modifier = Modifier
                 .clickable { onAddressClick() }
-                .padding(24.dp)
         ) {
             Text(
-                modifier = Modifier.padding(vertical = 4.dp),
+                modifier = Modifier.padding(bottom = 4.dp),
                 text = stringResource(com.jahez.home.R.string.deliver_to_label),
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal)
             )
             Row(
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 if (address.isNotBlank()) {
                     Text(
@@ -81,11 +81,8 @@ fun HomeHeader(
             }
         }
 
-        // order cart
         Icon(
-            modifier = Modifier
-                .clickable { onBasketClick() }
-                .padding(24.dp),
+            modifier = Modifier.clickable { onBasketClick() }.padding(8.dp) ,
             imageVector = ImageVector.vectorResource(R.drawable.cart_icon),
             contentDescription = "Order cart",
             tint = MaterialTheme.colorScheme.onPrimary

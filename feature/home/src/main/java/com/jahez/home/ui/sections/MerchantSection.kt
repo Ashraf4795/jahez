@@ -24,7 +24,7 @@ fun LazyListScope.MerchantSection(
 
     item {
         Section(
-            modifier,
+            modifier.padding(bottom = 8.dp),
             sectionTitle = stringResource(R.string.merchant_section_label),
             onMoreClick = onMoreClick,
         )
@@ -36,7 +36,7 @@ fun LazyListScope.MerchantSection(
             key = { merchantsWidget.items[it].merchantId }) { index ->
             val merchantItem = merchantsWidget.items[index]
             MerchantListItem(
-                modifier = Modifier.padding(bottom = 16.dp),
+                modifier = Modifier.padding(bottom = 8.dp),
                 merchantUiModel = MerchantUiModel.getMock(),
                 onFavoritClick = {},
                 onMerchantClick = onMerchantClick

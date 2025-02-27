@@ -1,14 +1,14 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.ksp)
-    alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.dagger.hilt)
 }
 
 android {
-    namespace = "com.jahez.basket"
+    namespace = "com.jahez.search"
     compileSdk = 34
 
     defaultConfig {
@@ -29,13 +29,11 @@ android {
         compose = true
     }
 }
-
 dependencies {
     androidX()
     jetpackLibs()
     kotlinx()
     projects()
-    implementation(libs.tap.sync)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -60,7 +58,7 @@ fun DependencyHandlerScope.jetpackLibs() {
     // room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler)
 }
 
 fun DependencyHandlerScope.androidX() {

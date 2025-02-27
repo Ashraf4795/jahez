@@ -1,7 +1,7 @@
 [versions]
 agp = "8.7.3"
 hiltAndroid = "2.52"
-kotlin = "2.0.0"
+kotlin = "2.1.10"
 kotlinx-coroutine = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -9,26 +9,26 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 kotlinxCoroutinesTest = "1.9.0"
 lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.9.3"
-composeBom = "2024.12.01"
+activityCompose = "1.10.0"
+composeBom = "2025.02.00"
 hilt = "2.52"
 room_version = "2.6.1"
-ksp = "2.0.21-1.0.27"
+ksp = "2.1.10-1.0.30"
 googel_services = "4.4.2"
-firebase_bom = "33.7.0"
+firebase_bom = "33.9.0"
 ktor_version = "3.0.2"
 moshi_version = "1.15.2"
 coil_version = "3.0.4"
 appcompat = "1.7.0"
 material = "1.12.0"
-uiTooling = "1.7.6"
+uiTooling = "1.7.8"
 jetbrainsKotlinJvm = "2.0.0"
 constraintlayout_version = "1.1.0"
 mockk = "1.13.14"
 strikt = "0.34.0"
-hiltViewModelCompose = "2.8.5"
+hiltViewModelCompose = "2.8.7"
 kotlinxSerializationJson = "1.6.3"
-androidxNavigation = "2.8.4"
+androidxNavigation = "2.8.7"
 androidxHiltNavigationCompose = "1.2.0"
 tap_sync_version = "1.0.0"
 navigationCommonKtx = "2.8.7"
@@ -52,6 +52,7 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material = { group = "androidx.compose.material", name = "material" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayout_version" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room_version"}
@@ -103,7 +104,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt"}
+kotlin-kapt = { id = "org.jetbrains.google.ksp"}
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 google-services = { id = "com.google.gms.google-services", version.ref = "googel_services" }

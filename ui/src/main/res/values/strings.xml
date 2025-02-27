@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- English Hints -->
+    <string name="hint_1">Craving something delicious? 🍕</string>
+    <string name="hint_2">Find the best restaurants near you! 🏡</string>
+    <string name="hint_3">Order your favorite meal in seconds! ⏳</string>
+    <string name="hint_4">Fresh &amp; hot, delivered fast! 🚀</string>
+    <string name="hint_5">Satisfy your cravings now! 😋</string>
 </resources>

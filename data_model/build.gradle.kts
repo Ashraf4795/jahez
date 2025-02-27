@@ -1,12 +1,12 @@
 plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.ksp)
 }
 
 dependencies {
     implementation(libs.moshi)
-    kapt(libs.moshi.codegen)
+    ksp(libs.moshi.codegen)
 }
 
 java {

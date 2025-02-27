@@ -39,3 +39,11 @@ fun NavController.navigateToProductDetailsScreen(
         navOptions()
     }
 }
+
+fun NavController.navigateToSearchScreen(
+    navOptions: NavOptionsBuilder.() -> Unit = {}
+): Boolean {
+    return navigateTo(AppRoute.SearchScreenRoute) {
+        navOptions()
+    }
+}

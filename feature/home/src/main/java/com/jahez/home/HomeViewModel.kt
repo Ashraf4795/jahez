@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     @IoDispatcher private val io: CoroutineDispatcher,
-    private val homeRepository: IHomeRepository
+    homeRepository: IHomeRepository
 ) : ViewModel() {
 
     val homeUiState: StateFlow<HomeUiState> =

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.ksp)
     alias(libs.plugins.dagger.hilt)
 }
 
@@ -70,6 +70,7 @@ fun DependencyHandlerScope.projects() {
     implementation(project(":feature:product_details"))
     implementation(project(":feature:merchant-menu"))
     implementation(project(":feature:basket"))
+    implementation(project(":feature:search"))
     implementation(project(":navigation"))
 }
 
@@ -98,7 +99,7 @@ fun DependencyHandlerScope.jetpackLibs() {
     // hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.viewmodel.compose)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // room
     implementation(libs.room.runtime)
@@ -108,8 +109,4 @@ fun DependencyHandlerScope.jetpackLibs() {
 
 fun DependencyHandlerScope.kotlinx() {
     implementation(libs.android.coroutine)
-}
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }

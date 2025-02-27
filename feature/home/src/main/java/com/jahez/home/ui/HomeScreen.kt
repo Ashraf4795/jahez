@@ -1,14 +1,19 @@
 package com.jahez.home.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.jahez.home.HomeViewModel
 import com.jahez.home.state.HomeUiState
+import com.jahez.home_data.datasource.remote.fake.fakeHomePageContent
+import com.jahez.inputs.AnimatedSearchBar
 import com.jahez.navigation.MerchantMenuNavArgs
 import com.jahez.navigation.navigateToBasketScreen
 import com.jahez.navigation.navigateToMerchantMenuScreen
@@ -39,10 +44,14 @@ internal fun HomeScreenImpl(
 ) {
     Column(modifier) {
         HomeHeader(
-            modifier = Modifier,
+            modifier = Modifier.padding(bottom = 8.dp),
             onAddressClick = navigateToAddress,
             onBasketClick = navigateToBasket
         )
+
+        AnimatedSearchBar(
+            modifier = Modifier
+        ) {  }
 
         when (homeUiState) {
             HomeUiState.Loading, HomeUiState.LoadingFailed -> Unit
@@ -51,4 +60,18 @@ internal fun HomeScreenImpl(
             }
         }
     }
+}
+
+
+@Preview
+@Composable
+private fun HomeScreenPreview() {
+    HomeScreenImpl(
+        homeUiState = HomeUiState.Success(
+            homePageContent = fakeHomePageContent,
+        ),
+        navigateToBasket = { },
+        navigateToAddress = { },
+        navigateToMenu = { }
+    )
 }

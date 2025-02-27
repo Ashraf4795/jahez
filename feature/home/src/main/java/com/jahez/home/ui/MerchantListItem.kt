@@ -4,9 +4,9 @@ import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -48,8 +48,8 @@ fun MerchantListItem(
 
     Card(modifier = modifier
         .clickable { onMerchantClick(merchantUiModel.merchantId) }
-        .fillMaxWidth()
-        .height(100.dp),
+        .heightIn(70.dp, 80.dp)
+        .fillMaxWidth(),
         colors = CardDefaults.cardColors().copy(
             containerColor = MaterialTheme.colorScheme.surface
         )
@@ -76,12 +76,11 @@ fun MerchantListItem(
 
             Column(
                 modifier = Modifier.constrainAs(merchantInfo) {
-                    start.linkTo(mImage.end, margin)
-                    top.linkTo(parent.top, 12.dp)
-                    bottom.linkTo(parent.bottom)
-                }
+                        start.linkTo(mImage.end, margin)
+                        top.linkTo(parent.top, 12.dp)
+                    }
+                    .fillMaxHeight()
             ) {
-
                 Text(
                     text = merchantUiModel.merchantName.localize("en"),
                     style = MaterialTheme.typography.titleLarge
@@ -91,9 +90,6 @@ fun MerchantListItem(
                     rate = merchantUiModel.rating,
                     rateCount = merchantUiModel.rateCount
                 )
-
-                Spacer(Modifier.height(16.dp))
-
 
                 merchantUiModel.getDeliveryMetadata()?.let { deliveryMetadata ->
                     Text(text = deliveryMetadata)
@@ -142,8 +138,8 @@ private fun PreviewMerchantListItem() {
 }
 
 @Preview(
-    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
-    showBackground = true
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+
 )
 @Composable
 private fun DarkPreviewMerchantListItem() {

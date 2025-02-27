@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.ksp)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.kotlin.serialization)
 }
@@ -55,12 +55,12 @@ fun DependencyHandlerScope.jetpackLibs() {
     implementation(libs.hilt.android)
     implementation(libs.hilt.viewmodel.compose)
     implementation(libs.androidx.hilt.navigation.compose)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler)
 }
 
 fun DependencyHandlerScope.androidX() {

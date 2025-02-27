@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
@@ -23,16 +23,16 @@ dependencies {
     implementation(project(":core"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     implementation(libs.android.coroutine)
 
     implementation(libs.moshi)
-    kapt(libs.moshi.codegen)
+    ksp(libs.moshi.codegen)
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)

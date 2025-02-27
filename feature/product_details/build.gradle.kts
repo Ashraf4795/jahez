@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.ksp)
     alias(libs.plugins.dagger.hilt)
 }
 
@@ -53,7 +53,7 @@ fun DependencyHandlerScope.projects() {
 fun DependencyHandlerScope.jetpackLibs() {
     // hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // room
     implementation(libs.room.runtime)

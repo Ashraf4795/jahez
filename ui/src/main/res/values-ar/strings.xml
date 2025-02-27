@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Arabic Hints -->
+    <string name="hint_1">هل تشعر بالجوع؟ 🍔</string>
+    <string name="hint_2">ابحث عن أفضل المطاعم بالقرب منك! 🏡</string>
+    <string name="hint_3">اطلب وجبتك المفضلة بسهولة! ⏳</string>
+    <string name="hint_4">طعام ساخن وطازج يصلك بسرعة 🚀</string>
+    <string name="hint_5">أشبع جوعك الآن😋</string>
 </resources>
